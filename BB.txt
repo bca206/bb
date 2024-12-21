@@ -1,0 +1,66 @@
+1.B.ANS)
+SQL> create table department(
+    deptno int primary key,
+    name varchar2(20),
+    manager_id number(10)
+    );
+
+Table created.
+
+SQL> create table employee (
+    empid int primary key,
+    name varchar2(20),
+    age int,
+    salary int,
+    deptno int references department
+   );
+
+Table created.
+
+
+insert into department values(20,'CS',12);
+insert into department values(15,'ACCOUNT',8);
+insert into department values(1,'SALES',17);
+insert into department values(6,'HR',20);
+insert into department values(7,'MARKETING',21);
+
+5 row created.
+
+insert into employee values (121,'hasan',40,50000,20);
+insert into employee values (122,'mudasir',20,1000000,7);
+insert into employee values (123,'fahmaan',23,20,15);
+insert into employee values (124,'noman',18,500000,6);
+insert into employee values (125,'afreed',19,50,1);
+
+5 row created.
+
+select * from department;
+
+select * from employee;
+
+select  name,empid from employee where salary between 1 and 50;
+
+select  name,salary from employee where deptno=20;
+
+select name,dname from employee,department where employee.deptno=department.deptno;
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+create table emp (
+empno int primary key,
+name varchar2(20),
+salary int,
+gender char(1)
+);
+
+insert into emp values (1,'hasan',2000,'m');
+
+
+set serveroutput on;
+
+declare 
+var varchar2(40):='i love india';
+begin
+    dbms_output.put_line(var);
+insert into emp values (2,'kaif',4000,'m');
+end;
+/
